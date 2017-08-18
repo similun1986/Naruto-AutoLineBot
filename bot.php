@@ -31,7 +31,7 @@ if (!is_null($events['events'])) {
 			$url = 'https://api.line.me/v2/bot/message/reply';
 			$data = [
 				'replyToken' => $replyToken,
-				" ID คือ" ['source']['userId'] " : "  'messages' => [$messages] 					
+				" ID คือ" 'userId' " : "  'messages' => [$messages] 					
 			        ];
 			
 			
