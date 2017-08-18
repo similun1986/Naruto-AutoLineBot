@@ -18,13 +18,15 @@ if (!is_null($events['events'])) {
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
 			$text = $event['message']['text'];
+			$userid = $event['source']['userid'];
+			
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => $text
+				'text' => $text "ส่งมาจาก" $userid
 			           ];
 			
 			// Make a POST Request to Messaging API to reply to sender
