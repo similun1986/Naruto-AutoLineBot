@@ -22,6 +22,10 @@ if (!is_null($events['events'])) {
 			
 			// Get replyToken
 			$replyToken = $event['replyToken'];
+			
+			$fromMid = $message->getFromMid();
+			$user = $sdk->getUserProfile($fromMid);
+			$displayName = $user['contacts'][0]['displayName'];
 
 			// Build message to reply back
 			$messages = [					
@@ -34,7 +38,7 @@ if (!is_null($events['events'])) {
 			$messages2 = [					
 				
 					'type' => 'text',
-					'text' => 'user-id'
+					'text' => "Hello " $displayName
 				
 			            ];
 			
