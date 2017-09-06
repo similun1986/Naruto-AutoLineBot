@@ -34,7 +34,7 @@ if (!is_null($events['events'])) {
 			$messages2 = [					
 				
 					'type' => 'text',
-					'text' => "Hello " 'user-id'
+					'text' => "Hello " ['user-id']
 				
 			            ];
 			
