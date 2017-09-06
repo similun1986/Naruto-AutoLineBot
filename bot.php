@@ -10,6 +10,19 @@ $proxyauth = 'http://fixie:0jMECBPPUU6WDu9@velodrome.usefixie.com:80';
 $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
+
+$bot = new \LINE\LINEBot(new CurlHTTPClient('your-channel-token'), [
+    'channelSecret' => 'your-channel-secret'
+]);
+
+$res = $bot->getProfile('user-id');
+if ($res->isSucceeded()) {
+    $profile = $res->getJSONDecodedBody();
+    $displayName = $profile['displayName'];
+    $statusMessage = $profile['statusMessage'];
+    $pictureUrl = $profile['pictureUrl'];
+}
+
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 	// Loop through each event
@@ -34,7 +47,7 @@ if (!is_null($events['events'])) {
 			$messages2 = [					
 				
 					'type' => 'text',
-					'text' => $userid
+					'text' =>$displayName
 				
 			            ];
 			
