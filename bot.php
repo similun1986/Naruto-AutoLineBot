@@ -18,8 +18,7 @@ if (!is_null($events['events'])) {
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
-			$text = $event['message']['text'];
-			$userid = $event['message']['user-id'];
+			$text = $event['message']['text'];			
 			
 			// Get replyToken
 			$replyToken = $event['replyToken'];
@@ -35,7 +34,7 @@ if (!is_null($events['events'])) {
 			$messages2 = [					
 				
 					'type' => 'text',
-					'text' => "Hello " $userid
+					'text' => "Hello " 'user-id'
 				
 			            ];
 			
