@@ -13,6 +13,7 @@ $events = json_decode($content, true);
 
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
+	
 	// Loop through each event
 	foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
@@ -23,10 +24,6 @@ if (!is_null($events['events'])) {
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 			
-			$fromMid = $message->getFromMid();
-			$user = $sdk->getUserProfile($fromMid);
-			$displayName = $user['contacts'][0]['displayName'];
-
 			// Build message to reply back
 			$messages = [					
 				
@@ -38,7 +35,7 @@ if (!is_null($events['events'])) {
 			$messages2 = [					
 				
 					'type' => 'text',
-					'text' => "Hello " $displayName
+					'text' => "Hello "
 				
 			            ];
 			
